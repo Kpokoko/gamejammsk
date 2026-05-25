@@ -21,7 +21,7 @@ using UnityEngine;
 public class ResourceClassGenerator : AssetPostprocessor
 {
     public const string PATH_TO_RESOURCES_FOLDER = "Game/Resources";
-    public const string PATH_TO_OUTPUT = "Generated";
+    public const string PATH_TO_OUTPUT = "Game/Resources/Generated";
     public const string OUTPUT_CLASS_NAME = "GameResources";
 
     private static bool _pendingGenerate = false;
