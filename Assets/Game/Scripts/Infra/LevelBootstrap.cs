@@ -40,6 +40,8 @@ namespace Game.Scripts.Infra
                 -width - carriagesOffset,
                 0,
                 0);
+            var right = prev.transform.Find("RightBorder").GetComponent<CarriageBorder>();
+            right.Init(CarriageBorderType.Wall); // Блок доступа в предыдущий вагон
             
             var currentX = 0f;
             var carriages = new List<Transform>();
@@ -49,18 +51,19 @@ namespace Game.Scripts.Infra
                 var carriage = Instantiate(trainsData[i].gameObject, trainRoot);
                 carriage.transform.localPosition = new Vector3(currentX, 0, 0);
                 sr = carriage.GetComponent<SpriteRenderer>();
+                sr.color = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f));
                 currentX += sr.bounds.size.x + carriagesOffset;
                 carriages.Add(carriage.transform);
-                carriage.GetComponent<Carriage>().Number = i;
+                carriage.GetComponent<Carriage>().Number = i - 1;
                 
                 var left = carriage.transform.Find("LeftBorder").GetComponent<CarriageBorder>();
-                var right = carriage.transform.Find("RightBorder").GetComponent<CarriageBorder>();
+                right = carriage.transform.Find("RightBorder").GetComponent<CarriageBorder>();
                 
-                var isFirst = i == 1;
                 var isLast = i == trainsData.Count - 1;
 
-                left.Init(isFirst ? CarriageBorderType.Wall : CarriageBorderType.Trigger);
-                right.Init(isLast ? CarriageBorderType.Wall : CarriageBorderType.Trigger);
+                // #TODO Если последний - CarriageBorderType.WinTrigger и завершение уровня
+                left.Init(isLast ? CarriageBorderType.Wall : CarriageBorderType.TransitionTrigger);
+                right.Init(CarriageBorderType.TransitionTrigger);
             }
             
             return carriages;

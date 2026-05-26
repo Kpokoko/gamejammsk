@@ -10,9 +10,9 @@ namespace Game.Scripts
         public void Init(CarriageBorderType borderType)
         {
             BoxCollider = GetComponent<BoxCollider2D>();
-            if (borderType is CarriageBorderType.Trigger)
+            if (borderType is CarriageBorderType.TransitionTrigger)
                 BoxCollider.isTrigger = true;
-            else
+            if (borderType is CarriageBorderType.Wall)
                 BoxCollider.isTrigger = false;
             Carriage = GetComponentInParent<Carriage>();
         }
@@ -25,7 +25,8 @@ namespace Game.Scripts
 
     public enum CarriageBorderType
     {
-        Trigger,
-        Wall
+        TransitionTrigger,
+        Wall,
+        WinTrigger
     }
 }

@@ -23,12 +23,16 @@ namespace Game.Scripts.Managers
 
         public void SetCurrent(int index)
         {
-            --index;
             if (index < 0 || index >= _carriages.Count) return;
             
             Debug.Log($"Камера смотрит на вагон номер {index}");
             _currIndex = index;
             OnCarriageChanged?.Invoke(index);
+        }
+
+        public void Swap(int index1, int index2)
+        {
+            (_carriages[index1], _carriages[index2]) = (_carriages[index2], _carriages[index1]);
         }
     }
 }

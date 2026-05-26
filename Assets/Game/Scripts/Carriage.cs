@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 
 namespace Game.Scripts
@@ -6,6 +7,7 @@ namespace Game.Scripts
     {
         public int Width = 630;
         public int Number;
+        public bool IsStable = false;
         public Sprite Sprite;
     }
 }

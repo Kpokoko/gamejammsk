@@ -14,11 +14,15 @@ public static class GameResources
     }
     public static class Prefabs
     {
+        public static class Carriages
+        {
+            public static Carriage BaseCarriage => Resources.Load<Carriage>("Prefabs/Carriages/BaseCarriage");
+            public static Carriage CutsceneCarriage => Resources.Load<Carriage>("Prefabs/Carriages/CutsceneCarriage");
+        }
         public static class Layout
         {
             public static GameObject Wall => Resources.Load<GameObject>("Prefabs/Layout/Wall");
         }
-        public static Carriage BaseCarriage => Resources.Load<Carriage>("Prefabs/BaseCarriage");
         public static CharacterController Player => Resources.Load<CharacterController>("Prefabs/Player");
     }
     public static class Sprites
