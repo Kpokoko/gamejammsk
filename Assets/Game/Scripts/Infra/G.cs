@@ -1,6 +1,6 @@
 using Game;
 using Game.Scripts.Infra;
-using Unity.VisualScripting;
+using Game.Scripts.Managers;
 using UnityEngine;
 
 public static class G // Сервис-локатор
@@ -25,6 +25,7 @@ public static class G // Сервис-локатор
     
     // То, что необходимо только на уровне (ui уровня, флоу контроллер и т.д.)
     public static LevelFlowController LevelFlowController { get; private set; }
+    public static CarriageManager CarriageManager { get; private set; }
 
     #endregion
 
@@ -49,9 +50,11 @@ public static class G // Сервис-локатор
     
     // инициализация/подсос LevelOnly сервисов
     public static void InitLevel(
-        LevelFlowController levelFlowController)
+        LevelFlowController levelFlowController,
+        CarriageManager carriageManager)
     {
         LevelFlowController = levelFlowController;
+        CarriageManager = carriageManager;
     }
 
     // очистка LevelOnly сервисов

@@ -13,6 +13,11 @@ MonoBehaviour:
   m_Name: Level0
   m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.Infra.LevelSO
   LevelIndex: 0
-  Carriages: []
-  PlayerSpawnPoint: {x: 0, y: -0.43}
+  Carriages:
+  - {fileID: -5112162113060149415, guid: 7dce458ce8886e346aeb51a5b4ea2c1d, type: 3}
+  - {fileID: -5112162113060149415, guid: 7dce458ce8886e346aeb51a5b4ea2c1d, type: 3}
+  - {fileID: -5112162113060149415, guid: 7dce458ce8886e346aeb51a5b4ea2c1d, type: 3}
+  - {fileID: -5112162113060149415, guid: 7dce458ce8886e346aeb51a5b4ea2c1d, type: 3}
+  - {fileID: -5112162113060149415, guid: 7dce458ce8886e346aeb51a5b4ea2c1d, type: 3}
+  PlayerSpawnPoint: {x: 0, y: -3.7}
   MoveDirection: 0

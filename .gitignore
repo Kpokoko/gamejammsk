@@ -38,6 +38,9 @@
 .vs/
 .idea/
 
+# Recovery folder
+_Recovery/
+
 # Gradle cache directory
 .gradle/
 
