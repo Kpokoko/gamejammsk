@@ -1,4 +1,5 @@
 using Game.Scripts.Infra;
+using Game.Scripts.Triggers;
 using UnityEngine;
 
 namespace Game.Scripts.DialogueModule

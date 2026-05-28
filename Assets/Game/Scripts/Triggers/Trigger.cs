@@ -1,7 +1,6 @@
-using Game.Scripts.Infra;
 using UnityEngine;
 
-namespace Game.Scripts
+namespace Game.Scripts.Triggers
 {
     public abstract class Trigger : MonoBehaviour
     {
@@ -21,5 +20,14 @@ namespace Game.Scripts
 
             Carriage = GetComponentInParent<Carriage>();
         }
+    }
+    
+    public enum CarriageBorderType
+    {
+        TransitionTrigger,
+        Wall,
+        EndLevelTrigger,
+        DialoguePosTrigger,
+        ClearTrainTrigger,
     }
 }

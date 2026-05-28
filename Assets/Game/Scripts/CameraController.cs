@@ -13,16 +13,13 @@ namespace Game.Scripts
         void Start()
         {
             _camera = GetComponent<Camera>();
-            Debug.Log($"CameraController Start, CarriageManager: {G.CarriageManager}");
             G.CarriageManager.OnCarriageChanged += OnCarriageChanged;
             G.LevelFlowController.OnZoom += Zoom;
             G.LevelFlowController.OnZoomReset += ResetZoom;
         }
         void OnCarriageChanged(int index)
         {
-            Debug.Log($"CameraController получил событие, индекс {index}");
             var target = G.CarriageManager.GetCarriage(index).position;
-            Debug.Log($"Цель камеры: {target}, текущая позиция: {transform.position}");
             transform.DOMoveX(target.x, transitionDuration).SetEase(Ease.InOutQuad);
         }
 

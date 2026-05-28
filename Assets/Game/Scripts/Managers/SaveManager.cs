@@ -8,8 +8,9 @@ namespace Game
     [Serializable]
     public class SaveData
     {
-        public bool ContinueCompany;
         public int CurrentLevelIndex = 0;
+        
+        public int LastLoadedLevelIndex = 0;
 
         public bool IsFirstLaunch = true;
         
@@ -56,6 +57,7 @@ namespace Game
             {
                 CreateNewSave();
             }
+            Data.LastLoadedLevelIndex = Data.CurrentLevelIndex;
         }
 
         private void CreateNewSave()
@@ -69,6 +71,12 @@ namespace Game
         {
             Data = new SaveData();
             Save();
+        }
+
+        public bool DidTrainExpanded()
+        {
+            Debug.Log($"Текущий индекс {Data.CurrentLevelIndex}, последний загруженный - {Data.LastLoadedLevelIndex}");
+            return Data.CurrentLevelIndex != Data.LastLoadedLevelIndex;
         }
     }
 }

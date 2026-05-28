@@ -93,6 +93,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.CarriageBorder
   BoxCollider: {fileID: 0}
   Carriage: {fileID: 0}
+  BorderType: 0
 --- !u!1 &172299547977543310
 GameObject:
   m_ObjectHideFlags: 0
@@ -143,6 +144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.Carriage
   Width: 630
   Number: 0
+  IsStable: 0
   Sprite: {fileID: 5260479863808642856, guid: 3dd714ee2b866eb4782aec4c4a85e717, type: 3}
 --- !u!212 &5899683936254113055
 SpriteRenderer:
@@ -260,6 +262,7 @@ GameObject:
   - component: {fileID: 2807904369978218905}
   - component: {fileID: 6282419225420042708}
   - component: {fileID: 6313565686239466021}
+  - component: {fileID: 8899900822654388514}
   m_Layer: 6
   m_Name: LeftBorder
   m_TagString: Untagged
@@ -342,3 +345,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.CarriageBorder
   BoxCollider: {fileID: 0}
   Carriage: {fileID: 0}
+  BorderType: 0
+--- !u!114 &8899900822654388514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7897923222670100123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7a2369225c440f0b728b6616d69f384, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.Triggers.CleanTrainTrigger
+  BoxCollider: {fileID: 0}
+  Carriage: {fileID: 0}
+  BorderType: 0

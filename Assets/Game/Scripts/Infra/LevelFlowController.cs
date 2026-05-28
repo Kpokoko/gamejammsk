@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Game.Scripts.DialogueModule;
 using Game.Scripts.Infra;
 using UnityEngine;
@@ -13,7 +14,8 @@ public class LevelFlowController
     {
         DialogueSystem = dialogueSystem;
     }
-    
+
+    public event Action OnLevelComplete;
     public event Action<LevelPhase> OnPhaseChange;
     public event Action OnZoom;
     public event Action OnZoomReset;
@@ -29,7 +31,6 @@ public class LevelFlowController
         switch (levelPhase)
         {
             case LevelPhase.Gameplay:
-                OnZoomReset?.Invoke();
                 CharacterController.OnGameplayResume?.Invoke();
                 Debug.Log("Началась фаза геймплея!");
                 break;
@@ -45,15 +46,22 @@ public class LevelFlowController
         }
     }
     
-    public void StartDialogue(DialogueData data)
+    public void ResetCameraZoom()
     {
-        EnterPhase(LevelPhase.Dialogue);
-        DialogueSystem.StartDialogue(data);
+        OnZoomReset?.Invoke();
     }
 
     private void OnDialogueEnded()
     {
+        Debug.Log("Диалог завершён!");
         DialogueSystem.OnDialogueEnd -= OnDialogueEnded;
+        FinishLevel();
+    }
+
+    public void FinishLevel()
+    {
+        Debug.Log("Уровень завершён!");
+        OnLevelComplete?.Invoke();
         EnterPhase(LevelPhase.Gameplay);
     }
     
