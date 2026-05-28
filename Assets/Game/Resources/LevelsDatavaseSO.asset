@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.Infra.LevelDatabaseSO
   Levels:
   - {fileID: 11400000, guid: c1c56de2e74ea6f4ea127ccadf93b3f7, type: 2}
+  - {fileID: 11400000, guid: a7fa9c10cd689f94ca6bdc2c6f662a75, type: 2}

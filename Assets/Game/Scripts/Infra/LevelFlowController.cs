@@ -35,7 +35,6 @@ public class LevelFlowController
                 Debug.Log("Началась фаза геймплея!");
                 break;
             case LevelPhase.Dialogue:
-                OnZoom?.Invoke();
                 CharacterController.OnGameplayStop?.Invoke();
                 DialogueSystem.OnDialogueEnd += OnDialogueEnded;
                 Debug.Log("Началась фаза диалога!");
@@ -44,6 +43,11 @@ public class LevelFlowController
                 Debug.Log("Началась фаза истории! (комикс/картинка, что мы там выдумаем)");
                 break;
         }
+    }
+    
+    public void Zoom()
+    {
+        OnZoom?.Invoke();
     }
     
     public void ResetCameraZoom()
@@ -61,6 +65,7 @@ public class LevelFlowController
     public void FinishLevel()
     {
         Debug.Log("Уровень завершён!");
+        G.SaveManager.EndLevel();
         OnLevelComplete?.Invoke();
         EnterPhase(LevelPhase.Gameplay);
     }

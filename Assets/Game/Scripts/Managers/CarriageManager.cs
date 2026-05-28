@@ -29,8 +29,15 @@ namespace Game.Scripts.Managers
 
         public void SetCurrent(int index)
         {
-            if (index < 0 || index >= _carriages.Count) return;
-            
+            var total = _carriages.Count + _nextCarriages.Count;
+            if (index < 0 || index >= total) return;
+    
+            if (index >= _carriages.Count)
+            {
+                _carriages.AddRange(_nextCarriages);
+                _nextCarriages.Clear();
+            }
+    
             _currIndex = index;
             OnCarriageChanged?.Invoke(index);
         }
@@ -42,6 +49,7 @@ namespace Game.Scripts.Managers
 
         public void ClearTrain(int count)
         {
+            Debug.LogWarning("Очистка");
             for (var i = 0; i < count; ++i)
             {
                 UnityEngine.Object.Destroy(_carriages[i].gameObject);

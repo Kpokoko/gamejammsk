@@ -73,10 +73,11 @@ namespace Game
             Save();
         }
 
-        public bool DidTrainExpanded()
+        public void EndLevel()
         {
-            Debug.Log($"Текущий индекс {Data.CurrentLevelIndex}, последний загруженный - {Data.LastLoadedLevelIndex}");
-            return Data.CurrentLevelIndex != Data.LastLoadedLevelIndex;
+            ++Data.CurrentLevelIndex;
+            Debug.Log($"Текущий уровень обновлён. Новое значение: {Data.CurrentLevelIndex}");
+            Save();
         }
     }
 }

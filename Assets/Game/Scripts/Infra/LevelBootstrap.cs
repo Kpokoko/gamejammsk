@@ -29,7 +29,16 @@ namespace Game.Scripts.Infra
             G.LevelFlowController.StartLevel();
         }
 
-        LevelSO GetLevelSO() => G.LevelsDatabase.Levels[G.SaveManager.Data.CurrentLevelIndex];
+        LevelSO GetLevelSO()
+        {
+            var currLvlInd = G.SaveManager.Data.CurrentLevelIndex;
+            if (currLvlInd >= G.LevelsDatabase.Levels.Count)
+            {
+                G.SaveManager.ResetSave(); // #TODO ну выход в меню там хотя бы ещё...
+                currLvlInd = G.SaveManager.Data.CurrentLevelIndex;
+            }
+            return G.LevelsDatabase.Levels[currLvlInd];
+        }
         
         public void ReloadLevel()
         {
@@ -79,6 +88,8 @@ namespace Game.Scripts.Infra
                     levelData.Carriages[i].gameObject,
                     i);
 
+                if (i == levelData.Carriages.Count - 1)
+                    InitEndLevel(carriage.gameObject);
                 result.Add(carriage);
             }
 
@@ -95,9 +106,9 @@ namespace Game.Scripts.Infra
             {
                 var carriage = CreateCarriage(newCarriages[i].gameObject, nextIndex);
                 if (i == 1)
-                {
                     InitDestroyer(carriage.gameObject, nextIndex);
-                }
+                if (i == level.Carriages.Count - 1)
+                    InitEndLevel(carriage.gameObject);
                 G.CarriageManager.ExtendTrain(carriage);
 
                 ++nextIndex;
@@ -164,6 +175,15 @@ namespace Game.Scripts.Infra
             destroyer?.Init(
                 CarriageBorderType.ClearTrainTrigger,
                 index - 1);
+        }
+
+        void InitEndLevel(GameObject carriageObject)
+        {
+            var left =
+                carriageObject.transform.Find("LeftBorder")
+                    ?.GetComponent<EndGameplayPhaseTrigger>();
+            
+            left?.Init(CarriageBorderType.EndLevelTrigger);
         }
 
         void OnDestroy()
