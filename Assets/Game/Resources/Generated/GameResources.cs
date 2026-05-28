@@ -6,6 +6,9 @@ using UnityEngine.UIElements;
 
 public static class GameResources
 {
+    public static class Dialogues
+    {
+    }
     public static class Generated
     {
     }
@@ -17,6 +20,7 @@ public static class GameResources
         public static class Carriages
         {
             public static Carriage BaseCarriage => Resources.Load<Carriage>("Prefabs/Carriages/BaseCarriage");
+            public static Carriage CutsceneCarriage_1 => Resources.Load<Carriage>("Prefabs/Carriages/CutsceneCarriage 1");
             public static Carriage CutsceneCarriage => Resources.Load<Carriage>("Prefabs/Carriages/CutsceneCarriage");
         }
         public static class Layout

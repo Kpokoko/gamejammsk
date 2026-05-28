@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Game.Scripts.DialogueModule;
 using Game.Scripts.Managers;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -22,9 +23,11 @@ namespace Game.Scripts.Infra
             player.GetComponent<CharacterController>().MoveDirection = levelData.MoveDirection;
             
             var train = LoadTrain(levelData);
+            var dialogueSystem = new DialogueSystem();
             
-            G.InitLevel(new LevelFlowController(), new CarriageManager(train));
+            G.InitLevel(new LevelFlowController(dialogueSystem), new CarriageManager(train), dialogueSystem);
             
+            G.LevelFlowController.SetCharacter(player);
             G.LevelFlowController.StartLevel();
         }
 
@@ -40,7 +43,7 @@ namespace Game.Scripts.Infra
                 -width - carriagesOffset,
                 0,
                 0);
-            var right = prev.transform.Find("RightBorder").GetComponent<CarriageBorder>();
+            var right = prev.transform.Find("RightBorder").GetComponent<CarriageTrigger>();
             right.Init(CarriageBorderType.Wall); // Блок доступа в предыдущий вагон
             
             var currentX = 0f;
@@ -56,13 +59,12 @@ namespace Game.Scripts.Infra
                 carriages.Add(carriage.transform);
                 carriage.GetComponent<Carriage>().Number = i - 1;
                 
-                var left = carriage.transform.Find("LeftBorder").GetComponent<CarriageBorder>();
-                right = carriage.transform.Find("RightBorder").GetComponent<CarriageBorder>();
-                
-                var isLast = i == trainsData.Count - 1;
+                var left = carriage.transform.Find("LeftBorder").GetComponent<CarriageTrigger>();
+                var dialogue = carriage.transform.Find("DialoguePlace")?.GetComponent<DialogueTrigger>();
+                right = carriage.transform.Find("RightBorder").GetComponent<CarriageTrigger>();
 
-                // #TODO Если последний - CarriageBorderType.WinTrigger и завершение уровня
-                left.Init(isLast ? CarriageBorderType.Wall : CarriageBorderType.TransitionTrigger);
+                left.Init(CarriageBorderType.TransitionTrigger);
+                dialogue?.Init(CarriageBorderType.DialoguePosTrigger);
                 right.Init(CarriageBorderType.TransitionTrigger);
             }
             

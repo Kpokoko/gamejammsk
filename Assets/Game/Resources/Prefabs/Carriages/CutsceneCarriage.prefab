@@ -93,6 +93,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.CarriageBorder
   BoxCollider: {fileID: 0}
   Carriage: {fileID: 0}
+  BorderType: 0
 --- !u!1 &172299547977543310
 GameObject:
   m_ObjectHideFlags: 0
@@ -343,3 +344,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.CarriageBorder
   BoxCollider: {fileID: 0}
   Carriage: {fileID: 0}
+  BorderType: 0

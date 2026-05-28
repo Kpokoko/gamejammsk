@@ -16,8 +16,6 @@ MonoBehaviour:
   Carriages:
   - {fileID: -5112162113060149415, guid: 4cea181975b90fa4794ffd825ac1f3d6, type: 3}
   - {fileID: -5112162113060149415, guid: 7dce458ce8886e346aeb51a5b4ea2c1d, type: 3}
-  - {fileID: -5112162113060149415, guid: 7dce458ce8886e346aeb51a5b4ea2c1d, type: 3}
-  - {fileID: -5112162113060149415, guid: 7dce458ce8886e346aeb51a5b4ea2c1d, type: 3}
-  - {fileID: -5112162113060149415, guid: 4cea181975b90fa4794ffd825ac1f3d6, type: 3}
+  - {fileID: -5112162113060149415, guid: eaba8d0a0be260542a44dd3fc4e29e70, type: 3}
   PlayerSpawnPoint: {x: 0, y: -3.7}
   MoveDirection: 0

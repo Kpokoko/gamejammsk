@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Game.Scripts.DialogueModule;
 using UnityEngine;
 
 namespace Game.Scripts.Infra
