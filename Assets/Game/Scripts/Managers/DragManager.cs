@@ -1,5 +1,6 @@
 using DG.Tweening;
 using Game.Scripts;
+using Game.Scripts.Infra;
 using UnityEngine;
 
 public class DragManager : MonoBehaviour
@@ -10,6 +11,9 @@ public class DragManager : MonoBehaviour
     
     void Update()
     {
+        if (G.LevelFlowController.CurrentPhase is not LevelPhase.Gameplay)
+            return;
+        
         if (Input.GetMouseButtonDown(0))
         {
             if (_isAnimating) return;

@@ -15,6 +15,8 @@ public class LevelFlowController
     }
     
     public event Action<LevelPhase> OnPhaseChange;
+    public event Action OnZoom;
+    public event Action OnZoomReset;
     public void StartLevel() => EnterPhase(LevelPhase.Gameplay);
     
     public void SetCharacter(CharacterController characterController) => CharacterController = characterController;
@@ -27,10 +29,12 @@ public class LevelFlowController
         switch (levelPhase)
         {
             case LevelPhase.Gameplay:
+                OnZoomReset?.Invoke();
                 CharacterController.OnGameplayResume?.Invoke();
                 Debug.Log("Началась фаза геймплея!");
                 break;
             case LevelPhase.Dialogue:
+                OnZoom?.Invoke();
                 CharacterController.OnGameplayStop?.Invoke();
                 DialogueSystem.OnDialogueEnd += OnDialogueEnded;
                 Debug.Log("Началась фаза диалога!");

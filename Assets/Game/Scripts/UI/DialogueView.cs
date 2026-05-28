@@ -1,6 +1,7 @@
 using System;
 using DG.Tweening;
 using Game.Scripts.DialogueModule;
+using Game.Scripts.Infra;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -50,6 +51,8 @@ public class DialogueView : MonoBehaviour
     
     public void OnDialogueClicked()
     {
+        if (G.LevelFlowController.CurrentPhase is not LevelPhase.Dialogue)
+            return;
         if (_typingTween != null && _typingTween.IsActive() && !_typingTween.IsComplete())
         {
             _typingTween.Complete();
