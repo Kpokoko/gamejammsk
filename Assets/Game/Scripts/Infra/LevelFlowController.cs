@@ -19,12 +19,18 @@ public class LevelFlowController
     public event Action<LevelPhase> OnPhaseChange;
     public event Action OnZoom;
     public event Action OnZoomReset;
+    public event Action OnEditZoom;
+    public event Action OnEditZoomReset;
+    
+    private LevelPhase _prevPhase = LevelPhase.Gameplay;
+    
     public void StartLevel() => EnterPhase(LevelPhase.Gameplay);
     
     public void SetCharacter(CharacterController characterController) => CharacterController = characterController;
 
     public void EnterPhase(LevelPhase levelPhase)
     {
+        _prevPhase = CurrentPhase;
         CurrentPhase = levelPhase;
         OnPhaseChange?.Invoke(levelPhase);
 
@@ -32,7 +38,13 @@ public class LevelFlowController
         {
             case LevelPhase.Gameplay:
                 CharacterController.OnGameplayResume?.Invoke();
+                if (_prevPhase is LevelPhase.Edit)
+                    OnEditZoomReset?.Invoke();
                 Debug.Log("Началась фаза геймплея!");
+                break;
+            case LevelPhase.Edit:
+                OnEditZoom?.Invoke();
+                Debug.Log("Началась фаза редактуры!");
                 break;
             case LevelPhase.Dialogue:
                 CharacterController.OnGameplayStop?.Invoke();

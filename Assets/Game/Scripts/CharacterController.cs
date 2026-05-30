@@ -1,4 +1,5 @@
 using System;
+using Game.Scripts;
 using UnityEngine;
 
 public class CharacterController : MonoBehaviour
@@ -12,10 +13,12 @@ public class CharacterController : MonoBehaviour
     public Action OnGameplayResume;
     
     private Rigidbody2D _rigidbody;
+    private Collider2D _collider;
 
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        _collider = GetComponent<Collider2D>();
         _isMoving = true;
         OnGameplayStop += Stop;
         OnGameplayResume += Resume;
@@ -46,12 +49,29 @@ public class CharacterController : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Wall"))
         {
-            _rigidbody.linearVelocity = Vector2.zero;
-            MoveDirection =
-                MoveDirection == MoveDirection.Left
-                    ? MoveDirection.Right
-                    : MoveDirection.Left;
+            Flip();
         }
+    }
+    
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.TryGetComponent<TurnstileController>(out var turnstile))
+        {
+            if (turnstile.PassDirection != MoveDirection)
+            {
+                Flip();
+            }
+        }
+    }
+    
+    void Flip()
+    {
+        _rigidbody.linearVelocity = Vector2.zero;
+        MoveDirection =
+            MoveDirection == MoveDirection.Left
+                ? MoveDirection.Right
+                : MoveDirection.Left;
+        
     }
 }
 

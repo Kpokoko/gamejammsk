@@ -458,7 +458,7 @@ Transform:
   m_GameObject: {fileID: 412959926}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.25, y: -4.5, z: 0}
+  m_LocalPosition: {x: 12.25, y: -6.45, z: 0}
   m_LocalScale: {x: 387.45, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -518,7 +518,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 412959926}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -720,8 +720,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.CameraController
   defaultSize: 5
-  zoomedSize: 2
+  zoomedSize: 0.8
   transitionDuration: 0.5
+  editZoomSize: 15
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -831,7 +832,7 @@ Transform:
   m_GameObject: {fileID: 674548166}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -5.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1015,7 +1016,7 @@ Transform:
   m_GameObject: {fileID: 1478711958}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -3, z: 0}
+  m_LocalPosition: {x: 0, y: -4.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

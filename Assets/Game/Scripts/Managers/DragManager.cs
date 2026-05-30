@@ -11,7 +11,18 @@ public class DragManager : MonoBehaviour
     
     void Update()
     {
-        if (G.LevelFlowController.CurrentPhase is not LevelPhase.Gameplay)
+        if (G.LevelFlowController.CurrentPhase is LevelPhase.Gameplay && Input.GetMouseButtonDown(1))
+        {
+            G.LevelFlowController.EnterPhase(LevelPhase.Edit);
+            G.LevelFlowController.Pause();
+        }
+        else if (G.LevelFlowController.CurrentPhase is LevelPhase.Edit && Input.GetMouseButtonDown(1))
+        {
+            G.LevelFlowController.EnterPhase(LevelPhase.Gameplay);
+            G.LevelFlowController.Resume();
+        }
+        
+        if (G.LevelFlowController.CurrentPhase is not LevelPhase.Edit)
             return;
         
         if (Input.GetMouseButtonDown(0))
@@ -28,7 +39,6 @@ public class DragManager : MonoBehaviour
                     _dragged = carriage;
                     _draggedFrom = carriage.transform.position;
                     _draggedFrom.z = 0;
-                    G.LevelFlowController.Pause();
                 }
             }
         }
@@ -60,7 +70,12 @@ public class DragManager : MonoBehaviour
             {
                 _isAnimating = true;
                 _dragged.transform.DOMove(_draggedFrom, 0.2f).SetEase(Ease.OutQuad).SetUpdate(true)
-                    .OnComplete(() => { G.LevelFlowController.Resume(); _isAnimating = false; });
+                    .OnComplete(() =>
+                    {
+                        Physics2D.SyncTransforms();
+                        _isAnimating = false;
+                        
+                    });
             }
 
             _dragged = null;
@@ -78,7 +93,12 @@ public class DragManager : MonoBehaviour
         _isAnimating = true;
         from.transform.DOMove(posTo, 0.2f).SetEase(Ease.OutQuad).SetUpdate(true);
         to.transform.DOMove(posFrom, 0.2f).SetEase(Ease.OutQuad).SetUpdate(true)
-            .OnComplete(() => { G.LevelFlowController.Resume(); _isAnimating = false; });
+            .OnComplete(() =>
+            {
+                Physics2D.SyncTransforms();
+                _isAnimating = false;
+                        
+            });
 
         Debug.Log($"Swap: from.Number={from.Number}, to.Number={to.Number}, CurrentIndex={G.CarriageManager.CurrentIndex}");
         G.CarriageManager.Swap(from.Number, to.Number);

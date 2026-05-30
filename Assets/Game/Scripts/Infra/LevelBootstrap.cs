@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Game.Scripts.DialogueModule;
+using Game.Scripts.Effects;
 using Game.Scripts.Managers;
 using Game.Scripts.Triggers;
 using Unity.VisualScripting;
@@ -21,6 +22,7 @@ namespace Game.Scripts.Infra
         {
             var dialogueSystem = new DialogueSystem();
 
+            G.InitSingleLevel(new TriggeredEffectsController());
             var (player, train) = LoadLevel(GetLevelSO());
             G.InitLevel(new LevelFlowController(dialogueSystem), new CarriageManager(train), dialogueSystem);
             
@@ -43,6 +45,7 @@ namespace Game.Scripts.Infra
         public void ReloadLevel()
         {
             Debug.Log("Уходим в подзагрузку/перезагрузку");
+            G.InitSingleLevel(new TriggeredEffectsController());
             ExtendTrain();
             // G.CarriageManager.ClearTrain(G.CarriageManager.CarriageCount - 1);
         }
@@ -71,7 +74,7 @@ namespace Game.Scripts.Infra
         List<Transform> LoadTrain(LevelSO levelData)
         {
             var result = new List<Transform>();
-            var prev = Instantiate(levelData.Carriages[0].gameObject, trainRoot);
+            var prev = Instantiate(levelData.Carriages[0].Prefab.gameObject, trainRoot);
             var sr = prev.GetComponent<SpriteRenderer>();
             var width = sr.bounds.size.x;
             prev.transform.localPosition = new Vector3(
@@ -85,7 +88,7 @@ namespace Game.Scripts.Infra
             for (var i = 1; i < levelData.Carriages.Count; ++i)
             {
                 var carriage = CreateCarriage(
-                    levelData.Carriages[i].gameObject,
+                    levelData.Carriages[i],
                     i + 1);
 
                 if (i == levelData.Carriages.Count - 1)
@@ -104,7 +107,7 @@ namespace Game.Scripts.Infra
 
             for (var i = 1; i < newCarriages.Count; ++i)
             {
-                var carriage = CreateCarriage(newCarriages[i].gameObject, nextIndex + i);
+                var carriage = CreateCarriage(newCarriages[i], nextIndex + i);
                 if (i == 1)
                     InitDestroyer(carriage.gameObject, nextIndex);
                 if (i == level.Carriages.Count - 1)
@@ -113,8 +116,9 @@ namespace Game.Scripts.Infra
             }
         }
 
-        Transform CreateCarriage(GameObject prefab, int index)
+        Transform CreateCarriage(CarriageConfig config, int index)
         {
+            var prefab = config.Prefab;
             var carriageObject = Instantiate(prefab, trainRoot);
 
             carriageObject.transform.localPosition =
@@ -133,6 +137,14 @@ namespace Game.Scripts.Infra
 
             InitBorders(carriageObject);
             InitDialogue(carriageObject);
+            InitButtons(carriageObject);
+            InitTurnstile(carriageObject, carriage);
+
+            foreach (var effect in config.Modifiers)
+            {
+                if (effect.IsInstant)
+                    effect.Apply(carriageObject);
+            }
 
             return carriage.transform;
         }
@@ -182,6 +194,33 @@ namespace Game.Scripts.Infra
                     ?.GetComponent<EndGameplayPhaseTrigger>();
             
             left?.Init(CarriageBorderType.EndLevelTrigger);
+        }
+
+        void InitButtons(GameObject carriageObject)
+        {
+            var doorButton =
+                carriageObject.transform.Find("DoorButton")
+                    ?.GetComponent<Button>();
+
+            if (doorButton)
+            {
+                var door = carriageObject.transform.Find("Door").gameObject;
+                doorButton.Init(door);
+            }
+        }
+
+        void InitTurnstile(GameObject carriageObject, Carriage carriage)
+        {
+            var turnstileWrapper = carriageObject.transform.Find("TurnstileWrapper");
+
+            if (turnstileWrapper)
+            {
+                var turnstile = turnstileWrapper.transform.Find("Turnstile");
+                var visualizer = turnstileWrapper.transform.Find("DirectionVisualizer");
+                
+                G.TriggeredEffectsController.RegisterTurnstile(turnstile.GetComponent<TurnstileController>());
+                G.TriggeredEffectsController.RegisterTurnstileVis(visualizer.GetComponent<TurnstileDirectionVisualizer>());
+            }
         }
 
         void OnDestroy()

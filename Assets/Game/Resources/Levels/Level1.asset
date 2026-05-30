@@ -14,10 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.Infra.LevelSO
   LevelIndex: 1
   Carriages:
-  - {fileID: -5112162113060149415, guid: eaba8d0a0be260542a44dd3fc4e29e70, type: 3}
-  - {fileID: -5112162113060149415, guid: 7dce458ce8886e346aeb51a5b4ea2c1d, type: 3}
-  - {fileID: -5112162113060149415, guid: 7dce458ce8886e346aeb51a5b4ea2c1d, type: 3}
-  - {fileID: -5112162113060149415, guid: 7dce458ce8886e346aeb51a5b4ea2c1d, type: 3}
-  - {fileID: -5112162113060149415, guid: eaba8d0a0be260542a44dd3fc4e29e70, type: 3}
-  PlayerSpawnPoint: {x: 0, y: -3.7}
+  - Prefab: {fileID: 172299547977543310, guid: eaba8d0a0be260542a44dd3fc4e29e70, type: 3}
+    Modifiers: []
+  - Prefab: {fileID: 975175227008808002, guid: 1f16003babf375242a60e123898fabe9, type: 3}
+    Modifiers: []
+  - Prefab: {fileID: 1999121154417271169, guid: 3c4263ffdea68f84bb287150577ad85f, type: 3}
+    Modifiers: []
+  - Prefab: {fileID: 975175227008808002, guid: a882ec33fe03ec34497fee9411193d05, type: 3}
+    Modifiers: []
+  - Prefab: {fileID: 172299547977543310, guid: eaba8d0a0be260542a44dd3fc4e29e70, type: 3}
+    Modifiers: []
+  PlayerSpawnPoint: {x: -3, y: -5.8}
   MoveDirection: 1

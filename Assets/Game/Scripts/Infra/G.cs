@@ -1,5 +1,6 @@
 using Game;
 using Game.Scripts.DialogueModule;
+using Game.Scripts.Effects;
 using Game.Scripts.Infra;
 using Game.Scripts.Managers;
 using UnityEngine;
@@ -29,6 +30,14 @@ public static class G // Сервис-локатор
     public static CarriageManager CarriageManager { get; private set; }
     public static DialogueSystem DialogueSystem { get; private set; }
 
+    #endregion
+    
+    #region SingleLevel
+    
+    // То, что НЕОБХОДИМО пересоздавать каждый уровень
+    
+    public static TriggeredEffectsController TriggeredEffectsController { get; private set; }
+    
     #endregion
 
     // инициализация/подсос AlwaysAlive сервисов
@@ -65,5 +74,15 @@ public static class G // Сервис-локатор
     public static void DisposeLevel()
     {
         LevelFlowController = null;
+    }
+
+    public static void InitSingleLevel(TriggeredEffectsController triggeredEffectsController)
+    {
+        TriggeredEffectsController = triggeredEffectsController;
+    }
+
+    public static void DisposeSingleLevel()
+    {
+        
     }
 }
