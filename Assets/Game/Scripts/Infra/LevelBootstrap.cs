@@ -70,6 +70,7 @@ namespace Game.Scripts.Infra
 
         List<Transform> LoadTrain(LevelSO levelData)
         {
+            var result = new List<Transform>();
             var prev = Instantiate(levelData.Carriages[0].gameObject, trainRoot);
             var sr = prev.GetComponent<SpriteRenderer>();
             var width = sr.bounds.size.x;
@@ -79,14 +80,13 @@ namespace Game.Scripts.Infra
                 0);
             var right = prev.transform.Find("RightBorder").GetComponent<CarriageBounds>();
             right.Init(CarriageBorderType.Wall); // Блок доступа в предыдущий вагон
-            
-            var result = new List<Transform>();
+            result.Add(prev.transform);
             
             for (var i = 1; i < levelData.Carriages.Count; ++i)
             {
                 var carriage = CreateCarriage(
                     levelData.Carriages[i].gameObject,
-                    i);
+                    i + 1);
 
                 if (i == levelData.Carriages.Count - 1)
                     InitEndLevel(carriage.gameObject);
@@ -104,14 +104,12 @@ namespace Game.Scripts.Infra
 
             for (var i = 1; i < newCarriages.Count; ++i)
             {
-                var carriage = CreateCarriage(newCarriages[i].gameObject, nextIndex);
+                var carriage = CreateCarriage(newCarriages[i].gameObject, nextIndex + i);
                 if (i == 1)
                     InitDestroyer(carriage.gameObject, nextIndex);
                 if (i == level.Carriages.Count - 1)
                     InitEndLevel(carriage.gameObject);
                 G.CarriageManager.ExtendTrain(carriage);
-
-                ++nextIndex;
             }
         }
 

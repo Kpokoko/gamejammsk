@@ -21,7 +21,9 @@ public class DragManager : MonoBehaviour
             if (hit.collider is not null
                 && hit.collider.TryGetComponent<Carriage>(out var carriage))
             {
-                if (Mathf.Abs(G.CarriageManager.CurrentIndex - carriage.Number) == 1 && !carriage.IsStable)
+                if (carriage.Number != 0
+                    && Mathf.Abs(G.CarriageManager.CurrentIndex - carriage.Number) == 1
+                    && !carriage.IsStable)
                 {
                     _dragged = carriage;
                     _draggedFrom = carriage.transform.position;
@@ -45,7 +47,9 @@ public class DragManager : MonoBehaviour
                 && hit.collider.TryGetComponent<Carriage>(out var target)
                 && target != _dragged)
             {
-                if (Mathf.Abs(G.CarriageManager.CurrentIndex - target.Number) == 1 && !target.IsStable)
+                if (target.Number != 0
+                    && Mathf.Abs(G.CarriageManager.CurrentIndex - target.Number) == 1
+                    && !target.IsStable)
                 {
                     SwapCarriages(_dragged, target);
                     didSwapped = true;

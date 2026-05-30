@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Game.Scripts.Triggers;
 using UnityEngine;
 
 namespace Game.Scripts.Managers
@@ -32,6 +33,8 @@ namespace Game.Scripts.Managers
             var total = _carriages.Count + _nextCarriages.Count;
             if (index < 0 || index >= total) return;
     
+            if (index == _currIndex) return;
+            
             if (index >= _carriages.Count)
             {
                 _carriages.AddRange(_nextCarriages);
@@ -63,7 +66,10 @@ namespace Game.Scripts.Managers
                 _carriages[i].GetComponent<Carriage>().Number = i;
             
             _currIndex = Mathf.Max(0, _currIndex - count);
-            OnCarriageChanged?.Invoke(_currIndex + 1);
+            OnCarriageChanged?.Invoke(_currIndex);
+            _carriages[0].transform.Find("RightBorder")
+                    ?.GetComponent<CarriageBounds>().Init(CarriageBorderType.Wall);
+            Debug.LogWarning($"Длина поезда {_carriages.Count}");
         }
     }
 }

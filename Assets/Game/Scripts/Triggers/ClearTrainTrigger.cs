@@ -20,6 +20,7 @@ namespace Game.Scripts.Triggers
                 return;
             G.CarriageManager.ClearTrain(_count);
             G.LevelFlowController.ResetCameraZoom();
+            IsActive = false;
         }
     }
 }
