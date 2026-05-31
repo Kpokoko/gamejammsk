@@ -41,6 +41,7 @@ public static class GameResources
         public static CarriageBounds LeftBorder => Resources.Load<CarriageBounds>("Prefabs/LeftBorder");
         public static CharacterController Player => Resources.Load<CharacterController>("Prefabs/Player");
         public static CarriageBounds RightBorder => Resources.Load<CarriageBounds>("Prefabs/RightBorder");
+        public static TurnstileButton TurnstileButton => Resources.Load<TurnstileButton>("Prefabs/TurnstileButton");
     }
     public static class Sprites
     {

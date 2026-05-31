@@ -370,8 +370,31 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7300673919379318253, guid: 1e0deb1571a833d4994c61e6836c4c96, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3127321791794565226}
   m_SourcePrefab: {fileID: 100100000, guid: 1e0deb1571a833d4994c61e6836c4c96, type: 3}
+--- !u!1 &2612295399587275398 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7300673919379318253, guid: 1e0deb1571a833d4994c61e6836c4c96, type: 3}
+  m_PrefabInstance: {fileID: 4688679236634494827}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3127321791794565226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2612295399587275398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c53fc89adfa9407388f7e4dade4c4719, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.Triggers.EndGameplayPhaseTrigger
+  BoxCollider: {fileID: 0}
+  Carriage: {fileID: 0}
+  BorderType: 2
 --- !u!4 &8010810435946659204 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3331983441981799151, guid: 1e0deb1571a833d4994c61e6836c4c96, type: 3}

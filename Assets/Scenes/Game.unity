@@ -720,9 +720,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.CameraController
   defaultSize: 5
-  zoomedSize: 0.8
+  zoomedSize: 3
   transitionDuration: 0.5
   editZoomSize: 15
+  followSmoothing: 0.1
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0

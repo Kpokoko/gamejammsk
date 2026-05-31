@@ -6,7 +6,13 @@ namespace Game.Scripts.Triggers
     {
         public override void Init(GameObject go)
         {
-            throw new System.NotImplementedException();
+            
+        }
+
+        void OnTriggerEnter2D(Collider2D other)
+        {
+            Debug.Log("Разворот турникетов");
+            G.TriggeredEffectsController.ReverseAll();
         }
     }
 }

@@ -137,13 +137,15 @@ namespace Game.Scripts.Infra
 
             InitBorders(carriageObject);
             InitDialogue(carriageObject);
-            InitButtons(carriageObject);
-            InitTurnstile(carriageObject, carriage);
+            InitDoorButton(carriageObject);
+            InitTurnstile(carriageObject);
 
             foreach (var effect in config.Modifiers)
             {
                 if (effect.IsInstant)
                     effect.Apply(carriageObject);
+                if (effect.Name == "TurnstileReverseEffect")
+                    InitTurnstileButton(carriage, (TurnstileReverseEffect)effect);
             }
 
             return carriage.transform;
@@ -196,7 +198,7 @@ namespace Game.Scripts.Infra
             left?.Init(CarriageBorderType.EndLevelTrigger);
         }
 
-        void InitButtons(GameObject carriageObject)
+        void InitDoorButton(GameObject carriageObject)
         {
             var doorButton =
                 carriageObject.transform.Find("DoorButton")
@@ -209,7 +211,7 @@ namespace Game.Scripts.Infra
             }
         }
 
-        void InitTurnstile(GameObject carriageObject, Carriage carriage)
+        void InitTurnstile(GameObject carriageObject)
         {
             var turnstileWrapper = carriageObject.transform.Find("TurnstileWrapper");
 
@@ -220,6 +222,17 @@ namespace Game.Scripts.Infra
                 
                 G.TriggeredEffectsController.RegisterTurnstile(turnstile.GetComponent<TurnstileController>());
                 G.TriggeredEffectsController.RegisterTurnstileVis(visualizer.GetComponent<TurnstileDirectionVisualizer>());
+            }
+        }
+
+        void InitTurnstileButton(Carriage carriage, TurnstileReverseEffect effect)
+        {
+
+            var reverseButton = Instantiate(GameResources.Prefabs.TurnstileButton, carriage.transform);
+            if (effect.Side is MoveDirection.Right)
+            {
+                var pos = reverseButton.transform.localPosition;
+                reverseButton.transform.localPosition = new Vector3(-pos.x, pos.y, 0);
             }
         }
 
