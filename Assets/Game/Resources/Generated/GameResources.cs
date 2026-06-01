@@ -28,8 +28,9 @@ public static class GameResources
             public static Carriage CutsceneCarriage => Resources.Load<Carriage>("Prefabs/Carriages/CutsceneCarriage");
             public static Carriage FakeCarriage => Resources.Load<Carriage>("Prefabs/Carriages/FakeCarriage");
             public static Carriage LCarriageWithDoor => Resources.Load<Carriage>("Prefabs/Carriages/LCarriageWithDoor");
+            public static Carriage LTurnstileCarriage => Resources.Load<Carriage>("Prefabs/Carriages/LTurnstileCarriage");
             public static Carriage RCarriageWithDoor => Resources.Load<Carriage>("Prefabs/Carriages/RCarriageWithDoor");
-            public static Carriage TurnstileCarriage => Resources.Load<Carriage>("Prefabs/Carriages/TurnstileCarriage");
+            public static Carriage RTurnstileCarriage => Resources.Load<Carriage>("Prefabs/Carriages/RTurnstileCarriage");
             public static Carriage WallCarriage => Resources.Load<Carriage>("Prefabs/Carriages/WallCarriage");
         }
         public static class Layout

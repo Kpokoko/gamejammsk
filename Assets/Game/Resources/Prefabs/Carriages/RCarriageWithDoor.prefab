@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7044201568592249488}
   - component: {fileID: 8598626204697277109}
   - component: {fileID: 3903257892928047176}
-  - component: {fileID: 6489712196533082678}
+  - component: {fileID: 1054816926197007081}
   m_Layer: 8
   m_Name: RCarriageWithDoor
   m_TagString: Untagged
@@ -113,7 +113,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!61 &6489712196533082678
+--- !u!61 &1054816926197007081
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -157,7 +157,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 6.3, y: 2}
+  m_Size: {x: 19.57, y: 6.94}
   m_EdgeRadius: 0
 --- !u!1001 &380832507657669508
 PrefabInstance:

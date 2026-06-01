@@ -8,7 +8,7 @@ namespace Game.Scripts.Effects
         void OnValidate()
         {
             Name = "Frozen";
-            IsInstant = false;
+            IsInstant = true;
         }
         
         public override void Apply(GameObject carriage)

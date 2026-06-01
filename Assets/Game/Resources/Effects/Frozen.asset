@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 530bfdef44f14cffaec5b2d19cb3da27, type: 3}
   m_Name: Frozen
   m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.Effects.FrozenEffectSO
+  Name: Frozen
+  IsInstant: 1

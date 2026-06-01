@@ -10,7 +10,8 @@ namespace Game.Scripts
         public void Reverse()
         {
             _isReversed = !_isReversed;
-            transform.DORotate(new Vector3(0, 0, _isReversed ? 180 : 0), 0.3f).SetEase(Ease.InOutQuad);
+            transform.DOBlendableRotateBy(new Vector3(0, 0, 180), 0.3f)
+                .SetEase(Ease.InOutQuad);
             Debug.Log("Иконка турникета развёрнута!");
         }
     }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3398724735263963566}
   - component: {fileID: 2215067324096872695}
   m_Layer: 8
-  m_Name: TurnstileCarriage
+  m_Name: RTurnstileCarriage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

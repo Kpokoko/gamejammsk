@@ -227,7 +227,6 @@ namespace Game.Scripts.Infra
 
         void InitTurnstileButton(Carriage carriage, TurnstileReverseEffect effect)
         {
-
             var reverseButton = Instantiate(GameResources.Prefabs.TurnstileButton, carriage.transform);
             if (effect.Side is MoveDirection.Right)
             {
