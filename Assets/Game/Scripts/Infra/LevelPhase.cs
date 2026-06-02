@@ -5,6 +5,6 @@ namespace Game.Scripts.Infra
         Gameplay,
         Edit,
         Dialogue,
-        Story
+        Story,
     }
 }

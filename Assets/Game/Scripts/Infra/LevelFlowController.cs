@@ -21,6 +21,7 @@ public class LevelFlowController
     public event Action OnZoomReset;
     public event Action OnEditZoom;
     public event Action OnEditZoomReset;
+    public bool IsSystemPaused;
     
     private LevelPhase _prevPhase = LevelPhase.Gameplay;
     
@@ -81,7 +82,15 @@ public class LevelFlowController
         OnLevelComplete?.Invoke();
         EnterPhase(LevelPhase.Gameplay);
     }
-    
-    public void Pause() => Time.timeScale = 0;
-    public void Resume() => Time.timeScale = 1;
+    public void Pause()
+    {
+        IsSystemPaused = true;
+        Time.timeScale = 0;
+    }
+
+    public void Resume()
+    {
+        IsSystemPaused = false;
+        Time.timeScale = 1;
+    }
 }

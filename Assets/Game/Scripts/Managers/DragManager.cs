@@ -11,6 +11,11 @@ public class DragManager : MonoBehaviour
     
     void Update()
     {
+        if (G.LevelFlowController.IsSystemPaused)
+        {
+            return;
+        }
+
         if (G.LevelFlowController.CurrentPhase is LevelPhase.Gameplay && Input.GetMouseButtonDown(1))
         {
             G.LevelFlowController.EnterPhase(LevelPhase.Edit);

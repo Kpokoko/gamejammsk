@@ -40,6 +40,7 @@ public static class GameResources
         public static GameObject Door => Resources.Load<GameObject>("Prefabs/Door");
         public static DoorButton DoorButton => Resources.Load<DoorButton>("Prefabs/DoorButton");
         public static CarriageBounds LeftBorder => Resources.Load<CarriageBounds>("Prefabs/LeftBorder");
+        public static GameObject PauseCont => Resources.Load<GameObject>("Prefabs/PauseCont");
         public static CharacterController Player => Resources.Load<CharacterController>("Prefabs/Player");
         public static CarriageBounds RightBorder => Resources.Load<CarriageBounds>("Prefabs/RightBorder");
         public static TurnstileButton TurnstileButton => Resources.Load<TurnstileButton>("Prefabs/TurnstileButton");
