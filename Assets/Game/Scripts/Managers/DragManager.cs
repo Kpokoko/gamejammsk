@@ -11,7 +11,7 @@ public class DragManager : MonoBehaviour
     
     void Update()
     {
-        if (G.LevelFlowController.IsSystemPaused)
+        if (G.LevelFlowController.PauseCanvas.activeSelf)
         {
             return;
         }

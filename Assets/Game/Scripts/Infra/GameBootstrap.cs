@@ -12,7 +12,6 @@ namespace Game.Scripts.Infra
             DontDestroyOnLoad(gameObject);
             var saveManager = new SaveManager();
             G.InitGame(levelsDatabase, saveManager);
-            SceneManager.LoadScene("Game");
         }
     }
 }

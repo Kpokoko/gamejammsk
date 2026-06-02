@@ -16,6 +16,7 @@ namespace Game.Scripts.Infra
     {
         [SerializeField] private Transform trainRoot;
         [SerializeField] private float carriagesOffset;
+        [SerializeField] private GameObject pauseCanvas;
         private float _currentTrainX = 0f;
         
         void Awake()
@@ -28,6 +29,7 @@ namespace Game.Scripts.Infra
             
             G.LevelFlowController.OnLevelComplete += ReloadLevel;
             G.LevelFlowController.SetCharacter(player);
+            G.LevelFlowController.SetPauseCanvas(pauseCanvas);
             G.LevelFlowController.StartLevel();
         }
 

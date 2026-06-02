@@ -22,12 +22,15 @@ public class LevelFlowController
     public event Action OnEditZoom;
     public event Action OnEditZoomReset;
     public bool IsSystemPaused;
+    public GameObject PauseCanvas;
     
     private LevelPhase _prevPhase = LevelPhase.Gameplay;
     
     public void StartLevel() => EnterPhase(LevelPhase.Gameplay);
     
     public void SetCharacter(CharacterController characterController) => CharacterController = characterController;
+    
+    public void SetPauseCanvas(GameObject pauseCanvas) => PauseCanvas = pauseCanvas;
 
     public void EnterPhase(LevelPhase levelPhase)
     {
