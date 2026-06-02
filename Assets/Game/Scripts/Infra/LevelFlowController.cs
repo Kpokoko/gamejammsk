@@ -25,9 +25,13 @@ public class LevelFlowController
     public GameObject PauseCanvas;
     
     private LevelPhase _prevPhase = LevelPhase.Gameplay;
-    
-    public void StartLevel() => EnterPhase(LevelPhase.Gameplay);
-    
+
+    public void StartLevel()
+    {
+        EnterPhase(LevelPhase.Gameplay);
+        Resume();
+    }
+
     public void SetCharacter(CharacterController characterController) => CharacterController = characterController;
     
     public void SetPauseCanvas(GameObject pauseCanvas) => PauseCanvas = pauseCanvas;

@@ -9,8 +9,8 @@ namespace Game
     public class SoundManager : MonoBehaviour
     {
         [Header("Settings")]
-        [Range(0, 1)] [SerializeField] private float musicVolume = 0.6f; // #TODO БЕРЕТСЯ НЕ ИЗ СЕЙВА!
-        [Range(0, 1)] [SerializeField] private float sfxVolume = 0.8f;
+        [Range(0, 1)] [SerializeField] public float musicVolume;
+        [Range(0, 1)] [SerializeField] public float sfxVolume;
         [SerializeField] private float fadeDuration = 1.2f;
 
         [Header("Audio Sources")]
@@ -32,10 +32,6 @@ namespace Game
             SetupSource(musicSourceA, true);
             SetupSource(musicSourceB, true);
             SetupSource(sfxSource, false);
-
-            
-            // musicSourceA.volume = _saveService.Data.MusicVolume;
-            // musicSourceB.volume = _saveService.Data.MusicVolume;
             
             // Важно: sfxSource всегда на полной громкости, 
             // так как PlayOneShot сам регулирует громкость клипа
@@ -49,6 +45,41 @@ namespace Game
             source.volume = 0;
         }
 
+        public void SetMusicVolume(float value)
+        {
+            musicVolume = Mathf.Clamp01(value);
+
+            // Обновляем текущие музыкальные источники
+            if (musicSourceA.isPlaying)
+                musicSourceA.volume = musicVolume;
+
+            if (musicSourceB.isPlaying)
+                musicSourceB.volume = musicVolume;
+
+            Debug.Log($"Теперь громкость музыки {musicVolume}");
+
+            // Сохранение
+            // _saveService.Data.MusicVolume = musicVolume;
+            // _saveService.Save();
+        }
+
+        public void SetSfxVolume(float value)
+        {
+            Debug.Log($"Была громкость звука {sfxVolume}");
+            sfxVolume = Mathf.Clamp01(value);
+
+            // Обновляем уже играющие цикличные SFX
+            foreach (var source in _activeLoops.Values)
+            {
+                if (source != null)
+                    source.volume = sfxVolume;
+            }
+
+            Debug.Log($"Теперь громкость звука {sfxVolume}");
+
+            // _saveService.Data.SfxVolume = sfxVolume;
+            // _saveService.Save();
+        }
 
         public Guid PlayLoopingSfx(AudioClip clip, float volumeFactor = 1f)
         {

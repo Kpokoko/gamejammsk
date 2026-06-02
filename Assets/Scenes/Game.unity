@@ -119,6 +119,28 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &36122008 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5507758414313723920, guid: 772d04d4dcd341e46b22e245df8ddef9, type: 3}
+  m_PrefabInstance: {fileID: 1912405098}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
+--- !u!114 &36122009 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3711789644475945050, guid: 772d04d4dcd341e46b22e245df8ddef9, type: 3}
+  m_PrefabInstance: {fileID: 1912405098}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
 --- !u!1 &160328887
 GameObject:
   m_ObjectHideFlags: 0
@@ -1851,6 +1873,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2465787750116653515, guid: 772d04d4dcd341e46b22e245df8ddef9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1912405105}
     - targetCorrespondingSourceObject: {fileID: 7048862219366770598, guid: 772d04d4dcd341e46b22e245df8ddef9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1912405104}
@@ -1907,6 +1932,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.UI.ContinueButton
   Pause: {fileID: 1912405100}
+--- !u!114 &1912405105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1912405100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d98c514bd98344f899e977e98cf8518a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.UI.PauseCanvasController
+  musicSlider: {fileID: 36122009}
+  sfxSlider: {fileID: 36122008}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -15,6 +15,8 @@ namespace Game
         public bool IsFirstLaunch = true;
         
         public float MusicVolume = 0.45f;
+        
+        public float SfxVolume = 0.8f;
     }
     
     public class SaveManager

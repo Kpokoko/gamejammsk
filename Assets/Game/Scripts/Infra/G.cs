@@ -41,10 +41,11 @@ public static class G // Сервис-локатор
     #endregion
 
     // инициализация/подсос AlwaysAlive сервисов
-    public static void InitGame(LevelsDatabaseSO levelsDatabase, SaveManager saveManager)
+    public static void InitGame(LevelsDatabaseSO levelsDatabase, SaveManager saveManager, SoundManager soundManager)
     {
         LevelsDatabase = levelsDatabase;
         SaveManager = saveManager;
+        SoundManager = soundManager;
     }
 
     // инициализация/подсос MenuOnly сервисов
