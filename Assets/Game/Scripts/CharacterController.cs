@@ -8,6 +8,8 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private SpriteRenderer hero_sprite;
     [SerializeField] private Animator animator;
 
+    [SerializeField] private AudioSource walksound;
+
     public MoveDirection MoveDirection = MoveDirection.Right;
     public float MoveSpeed;
     
@@ -28,11 +30,6 @@ public class CharacterController : MonoBehaviour
         OnGameplayResume += Resume;
     }
 
-    private void Update()
-    {
-        animator.SetBool("move", _isMoving);
-    }
-
     void Resume()
     {
         _isMoving = true;
@@ -42,7 +39,8 @@ public class CharacterController : MonoBehaviour
     {
         _isMoving = false;
         _rigidbody.linearVelocity = Vector2.zero;
-        
+        walksound.Stop();
+
     }
     
     void FixedUpdate()
@@ -53,6 +51,18 @@ public class CharacterController : MonoBehaviour
             _rigidbody.linearVelocity = MoveSpeed * Vector2.left;
         else
             _rigidbody.linearVelocity = MoveSpeed * Vector2.right;
+
+        animator.SetBool("move", _isMoving);
+
+        if (_isMoving)
+        {
+            if (!walksound.isPlaying)
+                walksound.Play();
+        }
+        else
+        {
+            walksound.Stop();
+        }
     }
 
     void OnCollisionEnter2D(Collision2D collision)

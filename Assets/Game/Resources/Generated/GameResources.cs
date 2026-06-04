@@ -10,6 +10,17 @@ public static class GameResources
     public static class Animations
     {
     }
+    public static class Audios
+    {
+        public static class sound
+        {
+            public static AudioClip pressed => Resources.Load<AudioClip>("Audios/sound/pressed");
+            public static AudioClip walk => Resources.Load<AudioClip>("Audios/sound/walk");
+        }
+        public static AudioClip music_dialoge => Resources.Load<AudioClip>("Audios/music_dialoge");
+        public static AudioClip music_menu => Resources.Load<AudioClip>("Audios/music_menu");
+        public static AudioClip music_vibe => Resources.Load<AudioClip>("Audios/music_vibe");
+    }
     public static class Dialogues
     {
     }
