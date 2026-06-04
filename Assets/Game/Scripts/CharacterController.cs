@@ -39,8 +39,8 @@ public class CharacterController : MonoBehaviour
     {
         _isMoving = false;
         _rigidbody.linearVelocity = Vector2.zero;
+        animator.SetBool("move", _isMoving);
         walksound.Stop();
-
     }
     
     void FixedUpdate()
@@ -61,6 +61,7 @@ public class CharacterController : MonoBehaviour
         }
         else
         {
+            Debug.LogWarning(_isMoving);
             walksound.Stop();
         }
     }

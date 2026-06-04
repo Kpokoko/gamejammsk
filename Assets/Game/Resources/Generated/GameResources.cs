@@ -69,9 +69,16 @@ public static class GameResources
     }
     public static class Sprites
     {
+        public static class brooooo
+        {
+            public static Sprite Злыдень => Resources.Load<Sprite>("Sprites/brooooo/Злыдень");
+            public static Sprite ЗлыденьСпрайт => Resources.Load<Sprite>("Sprites/brooooo/ЗлыденьСпрайт");
+        }
         public static class ded
         {
             public static Sprite ded_sit => Resources.Load<Sprite>("Sprites/ded/ded_sit");
+            public static Sprite дед_спрайт__2_ => Resources.Load<Sprite>("Sprites/ded/дед спрайт (2)");
+            public static Sprite дед_спрайт_улыбка__2_ => Resources.Load<Sprite>("Sprites/ded/дед спрайт улыбка (2)");
         }
         public static class Dialoge
         {
@@ -89,6 +96,9 @@ public static class GameResources
             public static Sprite girl_sit04 => Resources.Load<Sprite>("Sprites/girl/girl_sit04");
             public static Sprite girl_sit05 => Resources.Load<Sprite>("Sprites/girl/girl_sit05");
             public static Sprite girl_sit06 => Resources.Load<Sprite>("Sprites/girl/girl_sit06");
+            public static Sprite ГлавнаяГероиняСпрайтЗлобни__2_ => Resources.Load<Sprite>("Sprites/girl/ГлавнаяГероиняСпрайтЗлобни (2)");
+            public static Sprite ДевочкаСпрайт => Resources.Load<Sprite>("Sprites/girl/ДевочкаСпрайт");
+            public static Sprite ДевочкаСпрайтУлыбка => Resources.Load<Sprite>("Sprites/girl/ДевочкаСпрайтУлыбка");
         }
         public static class main_hero
         {
@@ -106,6 +116,7 @@ public static class GameResources
             public static Sprite stand => Resources.Load<Sprite>("Sprites/main_hero/stand");
             public static Sprite ГлавнаяГероиняСпрайт__2_ => Resources.Load<Sprite>("Sprites/main_hero/ГлавнаяГероиняСпрайт (2)");
             public static Sprite ГлавнаяГероиняСпрайт => Resources.Load<Sprite>("Sprites/main_hero/ГлавнаяГероиняСпрайт");
+            public static Sprite ГлавнаяГероиняСпрайтЗлобни__2_ => Resources.Load<Sprite>("Sprites/main_hero/ГлавнаяГероиняСпрайтЗлобни (2)");
             public static Sprite ГлавнаяГероиняСпрайтУлыбка__2_ => Resources.Load<Sprite>("Sprites/main_hero/ГлавнаяГероиняСпрайтУлыбка (2)");
         }
         public static Sprite BaseCarriage => Resources.Load<Sprite>("Sprites/BaseCarriage");
