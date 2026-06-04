@@ -17,13 +17,16 @@ MonoBehaviour:
   - Prefab: {fileID: 172299547977543310, guid: eaba8d0a0be260542a44dd3fc4e29e70, type: 3}
     Modifiers: []
   - Prefab: {fileID: 172299547977543310, guid: 7dce458ce8886e346aeb51a5b4ea2c1d, type: 3}
-    Modifiers: []
+    Modifiers:
+    - {fileID: 0}
   - Prefab: {fileID: 1999121154417271169, guid: 17374d6af58a5054abd7bd99025f5c3d, type: 3}
-    Modifiers: []
+    Modifiers:
+    - {fileID: 0}
   - Prefab: {fileID: 975175227008808002, guid: a882ec33fe03ec34497fee9411193d05, type: 3}
     Modifiers:
     - {fileID: 11400000, guid: 7b5585cdf76dc894aafe5582579e7442, type: 2}
   - Prefab: {fileID: 172299547977543310, guid: eaba8d0a0be260542a44dd3fc4e29e70, type: 3}
-    Modifiers: []
+    Modifiers:
+    - {fileID: 0}
   PlayerSpawnPoint: {x: -3, y: -5.8}
   MoveDirection: 1

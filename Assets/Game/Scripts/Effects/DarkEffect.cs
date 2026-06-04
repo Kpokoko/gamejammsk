@@ -5,6 +5,9 @@ namespace Game.Scripts.Effects
     [CreateAssetMenu(fileName = "Dark", menuName = "Game.Scripts/Effects/DarkEffect")]
     public class DarkEffectSO : EffectSO
     {
+        [Range(0f, 1f)]
+        [SerializeField] private float darg = 0.5f;
+
         void OnValidate()
         {
             Name = "Dark";
@@ -13,11 +16,13 @@ namespace Game.Scripts.Effects
 
         public override void Apply(GameObject carriage)
         {
-            SpriteRenderer[] sprites = carriage.GetComponentsInChildren<SpriteRenderer>();
+            var renders = carriage.GetComponentsInChildren<SpriteRenderer>();
 
-            foreach (SpriteRenderer sprite in sprites)
+            Color darkColor = new Color(darg, darg, darg, 1f);
+
+            foreach (var r in renders)
             {
-                sprite.color = Color.black;
+                r.color = darkColor;
             }
         }
     }
