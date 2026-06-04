@@ -15,6 +15,8 @@ public class CharacterController : MonoBehaviour
     private Rigidbody2D _rigidbody;
     private Collider2D _collider;
 
+    [SerializeField] private GameObject light;
+
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -22,6 +24,8 @@ public class CharacterController : MonoBehaviour
         _isMoving = true;
         OnGameplayStop += Stop;
         OnGameplayResume += Resume;
+
+        light.SetActive(false);
     }
 
     void Resume()
@@ -72,6 +76,14 @@ public class CharacterController : MonoBehaviour
                 ? MoveDirection.Right
                 : MoveDirection.Left;
         
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            light.SetActive(!light.activeSelf);
+        }
     }
 }
 

@@ -49,6 +49,17 @@ public static class GameResources
     }
     public static class Sprites
     {
+        public static class hero_walk
+        {
+            public static Sprite Walk01 => Resources.Load<Sprite>("Sprites/hero_walk/Walk01");
+            public static Sprite Walk02 => Resources.Load<Sprite>("Sprites/hero_walk/Walk02");
+            public static Sprite Walk03 => Resources.Load<Sprite>("Sprites/hero_walk/Walk03");
+            public static Sprite Walk04 => Resources.Load<Sprite>("Sprites/hero_walk/Walk04");
+            public static Sprite Walk05 => Resources.Load<Sprite>("Sprites/hero_walk/Walk05");
+            public static Sprite Walk06 => Resources.Load<Sprite>("Sprites/hero_walk/Walk06");
+            public static Sprite Walk07 => Resources.Load<Sprite>("Sprites/hero_walk/Walk07");
+            public static Sprite Walk08 => Resources.Load<Sprite>("Sprites/hero_walk/Walk08");
+        }
         public static Sprite CarriageDialogue1 => Resources.Load<Sprite>("Sprites/CarriageDialogue1");
         public static Sprite CarriagePlaceholder => Resources.Load<Sprite>("Sprites/CarriagePlaceholder");
         public static Sprite chel1 => Resources.Load<Sprite>("Sprites/chel1");
