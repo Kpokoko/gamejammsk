@@ -29,12 +29,16 @@ public static class GameResources
             public static Carriage BaseCarriage => Resources.Load<Carriage>("Prefabs/Carriages/BaseCarriage");
             public static Carriage CarriagePortal => Resources.Load<Carriage>("Prefabs/Carriages/CarriagePortal");
             public static Carriage CutsceneCarriage_1 => Resources.Load<Carriage>("Prefabs/Carriages/CutsceneCarriage 1");
+            public static Carriage CutsceneCarriage_2 => Resources.Load<Carriage>("Prefabs/Carriages/CutsceneCarriage 2");
+            public static Carriage CutsceneCarriage_3 => Resources.Load<Carriage>("Prefabs/Carriages/CutsceneCarriage 3");
             public static Carriage CutsceneCarriage => Resources.Load<Carriage>("Prefabs/Carriages/CutsceneCarriage");
             public static Carriage FakeCarriage => Resources.Load<Carriage>("Prefabs/Carriages/FakeCarriage");
+            public static Carriage LastLevelCarriage => Resources.Load<Carriage>("Prefabs/Carriages/LastLevelCarriage");
             public static Carriage LCarriageWithDoor => Resources.Load<Carriage>("Prefabs/Carriages/LCarriageWithDoor");
             public static Carriage LTurnstileCarriage => Resources.Load<Carriage>("Prefabs/Carriages/LTurnstileCarriage");
             public static Carriage RCarriageWithDoor => Resources.Load<Carriage>("Prefabs/Carriages/RCarriageWithDoor");
             public static Carriage RTurnstileCarriage => Resources.Load<Carriage>("Prefabs/Carriages/RTurnstileCarriage");
+            public static Carriage TrashCarriage => Resources.Load<Carriage>("Prefabs/Carriages/TrashCarriage");
             public static Carriage WallCarriage => Resources.Load<Carriage>("Prefabs/Carriages/WallCarriage");
         }
         public static class Layout
@@ -44,10 +48,12 @@ public static class GameResources
         public static GameObject Door => Resources.Load<GameObject>("Prefabs/Door");
         public static DoorButton DoorButton => Resources.Load<DoorButton>("Prefabs/DoorButton");
         public static CarriageBounds LeftBorder => Resources.Load<CarriageBounds>("Prefabs/LeftBorder");
+        public static PortalTrigger LPortal => Resources.Load<PortalTrigger>("Prefabs/LPortal");
         public static GameObject PauseCont => Resources.Load<GameObject>("Prefabs/PauseCont");
         public static CharacterController Player => Resources.Load<CharacterController>("Prefabs/Player");
-        public static PortalTp Portal => Resources.Load<PortalTp>("Prefabs/Portal");
+        public static PortalTrigger Portal => Resources.Load<PortalTrigger>("Prefabs/Portal");
         public static CarriageBounds RightBorder => Resources.Load<CarriageBounds>("Prefabs/RightBorder");
+        public static PortalTrigger RPortal => Resources.Load<PortalTrigger>("Prefabs/RPortal");
         public static TurnstileButton TurnstileButton => Resources.Load<TurnstileButton>("Prefabs/TurnstileButton");
     }
     public static class Sprites
@@ -89,6 +95,8 @@ public static class GameResources
             public static Sprite stand => Resources.Load<Sprite>("Sprites/main_hero/stand");
         }
         public static Sprite CarriageDialogue1 => Resources.Load<Sprite>("Sprites/CarriageDialogue1");
+        public static Sprite CarriageDialogue2 => Resources.Load<Sprite>("Sprites/CarriageDialogue2");
+        public static Sprite CarriageDialogue3 => Resources.Load<Sprite>("Sprites/CarriageDialogue3");
         public static Sprite CarriagePlaceholder => Resources.Load<Sprite>("Sprites/CarriagePlaceholder");
         public static Sprite chel1 => Resources.Load<Sprite>("Sprites/chel1");
     }

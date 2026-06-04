@@ -1376,7 +1376,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelBootstrap
   trainRoot: {fileID: 1478711959}
-  carriagesOffset: 1
+  carriagesOffset: 0
   pauseCanvas: {fileID: 1912405100}
 --- !u!4 &1623896881
 Transform:

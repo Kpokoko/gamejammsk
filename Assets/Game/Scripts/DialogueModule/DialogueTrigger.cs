@@ -12,8 +12,8 @@ namespace Game.Scripts.DialogueModule
         {
             if (BorderType is CarriageBorderType.DialoguePosTrigger)
             {
-                G.DialogueSystem.StartDialogue(Dialogue);
                 G.LevelFlowController.EnterPhase(LevelPhase.Dialogue);
+                G.DialogueSystem.StartDialogue(Dialogue);
             }
         }
     }

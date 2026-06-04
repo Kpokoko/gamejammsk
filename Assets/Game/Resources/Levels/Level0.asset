@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.Infra.LevelSO
   LevelIndex: 0
   Carriages:
-  - Prefab: {fileID: 172299547977543310, guid: 7dce458ce8886e346aeb51a5b4ea2c1d, type: 3}
+  - Prefab: {fileID: 172299547977543310, guid: c9a62a763b2fd0b4ab723823d99e0ef9, type: 3}
     Modifiers: []
   - Prefab: {fileID: 172299547977543310, guid: 7dce458ce8886e346aeb51a5b4ea2c1d, type: 3}
     Modifiers: []
@@ -22,7 +22,7 @@ MonoBehaviour:
     Modifiers: []
   - Prefab: {fileID: 2801005109820427566, guid: c82bd5d35872f7c4a83e1a7d13151536, type: 3}
     Modifiers: []
-  - Prefab: {fileID: 172299547977543310, guid: eaba8d0a0be260542a44dd3fc4e29e70, type: 3}
+  - Prefab: {fileID: 172299547977543310, guid: 4f60aff0c16a04a46952a7b37da44e47, type: 3}
     Modifiers: []
-  PlayerSpawnPoint: {x: 0, y: -5.8}
+  PlayerSpawnPoint: {x: -8, y: -5.8}
   MoveDirection: 1

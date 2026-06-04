@@ -29,5 +29,6 @@ namespace Game.Scripts.Triggers
         EndLevelTrigger,
         DialoguePosTrigger,
         ClearTrainTrigger,
+        Portal,
     }
 }

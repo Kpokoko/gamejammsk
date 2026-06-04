@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 namespace Game.Scripts.DialogueModule
 {
@@ -12,6 +13,13 @@ namespace Game.Scripts.DialogueModule
 
         public void StartDialogue(DialogueData dialogueData)
         {
+            if (!dialogueData)
+            {
+                OnDialogueEnd?.Invoke();
+                Debug.Log("Диалога нет, пропускаем");
+                return;
+            }
+
             _dialogueData = dialogueData;
             _currentDialogueIndex = 0;
             ShowCurrentLine();

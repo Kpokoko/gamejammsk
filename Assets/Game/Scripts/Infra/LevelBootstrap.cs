@@ -1,14 +1,10 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using Game.Scripts.DialogueModule;
 using Game.Scripts.Effects;
 using Game.Scripts.Managers;
 using Game.Scripts.Triggers;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Serialization;
-using Random = UnityEngine.Random;
+using UnityEngine.Rendering.Universal;
 
 namespace Game.Scripts.Infra
 {
@@ -148,6 +144,8 @@ namespace Game.Scripts.Infra
                     effect.Apply(carriageObject);
                 if (effect.Name == "TurnstileReverseEffect")
                     InitTurnstileButton(carriage, (TurnstileReverseEffect)effect);
+                if (effect.Name == "Portal")
+                    InitPortal(carriage, (PortalEffect)effect);
             }
 
             return carriage.transform;
@@ -234,6 +232,21 @@ namespace Game.Scripts.Infra
             {
                 var pos = reverseButton.transform.localPosition;
                 reverseButton.transform.localPosition = new Vector3(-pos.x, pos.y, 0);
+            }
+        }
+
+        void InitPortal(Carriage carriage, PortalEffect effect)
+        {
+            carriage.HasPortal = true;
+            if (effect.Side is MoveDirection.Right)
+            {
+                var portal = Instantiate(GameResources.Prefabs.RPortal, carriage.transform);
+                portal.Init(CarriageBorderType.Portal);
+            }
+            else
+            {
+                var portal = Instantiate(GameResources.Prefabs.LPortal, carriage.transform);
+                portal.Init(CarriageBorderType.Portal);
             }
         }
 

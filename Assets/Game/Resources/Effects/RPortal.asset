@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 530bfdef44f14cffaec5b2d19cb3da27, type: 3}
-  m_Name: Portal
-  m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.Effects.FrozenEffectSO
-  Name: Frozen
-  IsInstant: 1
+  m_Script: {fileID: 11500000, guid: 945ee0a60832484f90b4908b6c6d9269, type: 3}
+  m_Name: RPortal
+  m_EditorClassIdentifier: Assembly-CSharp::Game.Scripts.Effects.PortalEffect
+  Name: Portal
+  IsInstant: 0
+  Side: 1

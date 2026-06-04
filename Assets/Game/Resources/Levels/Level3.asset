@@ -25,14 +25,16 @@ MonoBehaviour:
     Modifiers:
     - {fileID: 11400000, guid: 53fd77a7bc505934081c96b9a89c12b4, type: 2}
   - Prefab: {fileID: 975175227008808002, guid: 1f16003babf375242a60e123898fabe9, type: 3}
-    Modifiers: []
+    Modifiers:
+    - {fileID: 11400000, guid: 7b5585cdf76dc894aafe5582579e7442, type: 2}
   - Prefab: {fileID: 2801005109820427566, guid: c82bd5d35872f7c4a83e1a7d13151536, type: 3}
-    Modifiers: []
+    Modifiers:
+    - {fileID: 11400000, guid: 7b5585cdf76dc894aafe5582579e7442, type: 2}
   - Prefab: {fileID: 1999121154417271169, guid: 3c4263ffdea68f84bb287150577ad85f, type: 3}
     Modifiers:
     - {fileID: 11400000, guid: aa5d3f245a7e44f4aa71bcf512481a21, type: 2}
-  - Prefab: {fileID: 172299547977543310, guid: eaba8d0a0be260542a44dd3fc4e29e70, type: 3}
+  - Prefab: {fileID: 172299547977543310, guid: 4f60aff0c16a04a46952a7b37da44e47, type: 3}
     Modifiers:
     - {fileID: 11400000, guid: aa5d3f245a7e44f4aa71bcf512481a21, type: 2}
-  PlayerSpawnPoint: {x: -3, y: -5.8}
+  PlayerSpawnPoint: {x: -8, y: -5.8}
   MoveDirection: 1
