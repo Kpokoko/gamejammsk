@@ -345,7 +345,7 @@ MonoBehaviour:
   BoxCollider: {fileID: 0}
   Carriage: {fileID: 0}
   BorderType: 3
-  Dialogue: {fileID: 11400000, guid: a2bf93161f3083940bb5239141c69131, type: 2}
+  Dialogue: {fileID: 11400000, guid: b115d665a09824f48a00ff31cf995164, type: 2}
 --- !u!1001 &3752822597450310855
 PrefabInstance:
   m_ObjectHideFlags: 0

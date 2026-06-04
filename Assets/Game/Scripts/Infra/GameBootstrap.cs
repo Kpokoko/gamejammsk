@@ -10,6 +10,8 @@ namespace Game.Scripts.Infra
 
         void Awake()
         {
+            Camera.main.clearFlags = CameraClearFlags.SolidColor;
+            Camera.main.backgroundColor = Color.black;
             DontDestroyOnLoad(gameObject);
             var saveManager = new SaveManager();
             soundManager.musicVolume = saveManager.Data.MusicVolume;

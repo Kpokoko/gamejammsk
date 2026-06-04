@@ -4,7 +4,6 @@ using Game.Scripts.Effects;
 using Game.Scripts.Managers;
 using Game.Scripts.Triggers;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
 
 namespace Game.Scripts.Infra
 {
@@ -17,6 +16,8 @@ namespace Game.Scripts.Infra
         
         void Awake()
         {
+            Camera.main.clearFlags = CameraClearFlags.SolidColor;
+            Camera.main.backgroundColor = Color.black;
             var dialogueSystem = new DialogueSystem();
 
             G.InitSingleLevel(new TriggeredEffectsController());
@@ -142,6 +143,17 @@ namespace Game.Scripts.Infra
             {
                 if (effect.IsInstant)
                     effect.Apply(carriageObject);
+                if (effect.Name == "Frozen")
+                {
+                    // sr = carriageObject.GetComponent<SpriteRenderer>();
+                    var frozenTint = new Color(0.3f, 0.5f, 1f, 1f);
+                    // sr.color = Color.Lerp(sr.color, frozenTint, 0.3f);
+
+                    foreach (var srenderer in carriageObject.GetComponentsInChildren<SpriteRenderer>())
+                    {
+                        srenderer.color = Color.Lerp(srenderer.color, frozenTint, 0.3f);
+                    }
+                }
                 if (effect.Name == "TurnstileReverseEffect")
                     InitTurnstileButton(carriage, (TurnstileReverseEffect)effect);
                 if (effect.Name == "Portal")

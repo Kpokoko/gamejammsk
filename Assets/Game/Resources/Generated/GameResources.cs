@@ -104,6 +104,9 @@ public static class GameResources
                 public static Sprite Walk08 => Resources.Load<Sprite>("Sprites/main_hero/Walk/Walk08");
             }
             public static Sprite stand => Resources.Load<Sprite>("Sprites/main_hero/stand");
+            public static Sprite ГлавнаяГероиняСпрайт__2_ => Resources.Load<Sprite>("Sprites/main_hero/ГлавнаяГероиняСпрайт (2)");
+            public static Sprite ГлавнаяГероиняСпрайт => Resources.Load<Sprite>("Sprites/main_hero/ГлавнаяГероиняСпрайт");
+            public static Sprite ГлавнаяГероиняСпрайтУлыбка__2_ => Resources.Load<Sprite>("Sprites/main_hero/ГлавнаяГероиняСпрайтУлыбка (2)");
         }
         public static Sprite BaseCarriage => Resources.Load<Sprite>("Sprites/BaseCarriage");
         public static Sprite CarriageDialogue1 => Resources.Load<Sprite>("Sprites/CarriageDialogue1");
@@ -111,5 +114,7 @@ public static class GameResources
         public static Sprite CarriageDialogue3 => Resources.Load<Sprite>("Sprites/CarriageDialogue3");
         public static Sprite CarriagePlaceholder => Resources.Load<Sprite>("Sprites/CarriagePlaceholder");
         public static Sprite chel1 => Resources.Load<Sprite>("Sprites/chel1");
+        public static Sprite вагон_6 => Resources.Load<Sprite>("Sprites/вагон 6");
+        public static Sprite портал => Resources.Load<Sprite>("Sprites/портал");
     }
 }
