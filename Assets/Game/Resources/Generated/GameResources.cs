@@ -24,6 +24,7 @@ public static class GameResources
         public static class Carriages
         {
             public static Carriage BaseCarriage => Resources.Load<Carriage>("Prefabs/Carriages/BaseCarriage");
+            public static Carriage CarriagePortal => Resources.Load<Carriage>("Prefabs/Carriages/CarriagePortal");
             public static Carriage CutsceneCarriage_1 => Resources.Load<Carriage>("Prefabs/Carriages/CutsceneCarriage 1");
             public static Carriage CutsceneCarriage => Resources.Load<Carriage>("Prefabs/Carriages/CutsceneCarriage");
             public static Carriage FakeCarriage => Resources.Load<Carriage>("Prefabs/Carriages/FakeCarriage");
@@ -42,6 +43,7 @@ public static class GameResources
         public static CarriageBounds LeftBorder => Resources.Load<CarriageBounds>("Prefabs/LeftBorder");
         public static GameObject PauseCont => Resources.Load<GameObject>("Prefabs/PauseCont");
         public static CharacterController Player => Resources.Load<CharacterController>("Prefabs/Player");
+        public static PortalTp Portal => Resources.Load<PortalTp>("Prefabs/Portal");
         public static CarriageBounds RightBorder => Resources.Load<CarriageBounds>("Prefabs/RightBorder");
         public static TurnstileButton TurnstileButton => Resources.Load<TurnstileButton>("Prefabs/TurnstileButton");
     }

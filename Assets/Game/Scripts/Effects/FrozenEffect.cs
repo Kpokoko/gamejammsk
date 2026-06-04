@@ -10,7 +10,7 @@ namespace Game.Scripts.Effects
             Name = "Frozen";
             IsInstant = true;
         }
-        
+
         public override void Apply(GameObject carriage)
         {
             carriage.GetComponent<Carriage>().IsStable = true;
