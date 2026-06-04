@@ -32,7 +32,7 @@ MonoBehaviour:
     Modifiers:
     - {fileID: 11400000, guid: 53fd77a7bc505934081c96b9a89c12b4, type: 2}
     - {fileID: 11400000, guid: aa5d3f245a7e44f4aa71bcf512481a21, type: 2}
-  - Prefab: {fileID: 172299547977543310, guid: eaba8d0a0be260542a44dd3fc4e29e70, type: 3}
+  - Prefab: {fileID: 172299547977543310, guid: cff5108903758a34185659fd721fc2cb, type: 3}
     Modifiers: []
   PlayerSpawnPoint: {x: -8, y: -5.8}
   MoveDirection: 1

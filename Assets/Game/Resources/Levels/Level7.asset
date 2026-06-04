@@ -30,7 +30,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 0b91801b660e61f41972bbd728227ed3, type: 2}
   - Prefab: {fileID: 1999121154417271169, guid: 17374d6af58a5054abd7bd99025f5c3d, type: 3}
     Modifiers: []
-  - Prefab: {fileID: 172299547977543310, guid: eaba8d0a0be260542a44dd3fc4e29e70, type: 3}
+  - Prefab: {fileID: 172299547977543310, guid: 7133c32441b318140b7e878e72c57834, type: 3}
     Modifiers: []
   PlayerSpawnPoint: {x: -8, y: -5.8}
   MoveDirection: 1

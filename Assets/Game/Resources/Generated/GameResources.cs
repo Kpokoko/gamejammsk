@@ -94,6 +94,7 @@ public static class GameResources
             }
             public static Sprite stand => Resources.Load<Sprite>("Sprites/main_hero/stand");
         }
+        public static Sprite BaseCarriage => Resources.Load<Sprite>("Sprites/BaseCarriage");
         public static Sprite CarriageDialogue1 => Resources.Load<Sprite>("Sprites/CarriageDialogue1");
         public static Sprite CarriageDialogue2 => Resources.Load<Sprite>("Sprites/CarriageDialogue2");
         public static Sprite CarriageDialogue3 => Resources.Load<Sprite>("Sprites/CarriageDialogue3");

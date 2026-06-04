@@ -21,7 +21,7 @@ public class DragManager : MonoBehaviour
             G.LevelFlowController.EnterPhase(LevelPhase.Edit);
             G.LevelFlowController.Pause();
         }
-        else if (G.LevelFlowController.CurrentPhase is LevelPhase.Edit && Input.GetMouseButtonDown(1))
+        else if (G.LevelFlowController.CurrentPhase is LevelPhase.Edit && Input.GetMouseButtonDown(1) && !_dragged && !_isAnimating)
         {
             G.LevelFlowController.EnterPhase(LevelPhase.Gameplay);
             G.LevelFlowController.Resume();
