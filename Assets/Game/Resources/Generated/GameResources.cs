@@ -7,6 +7,9 @@ using UnityEngine.UIElements;
 
 public static class GameResources
 {
+    public static class Animations
+    {
+    }
     public static class Dialogues
     {
     }
@@ -49,16 +52,41 @@ public static class GameResources
     }
     public static class Sprites
     {
-        public static class hero_walk
+        public static class ded
         {
-            public static Sprite Walk01 => Resources.Load<Sprite>("Sprites/hero_walk/Walk01");
-            public static Sprite Walk02 => Resources.Load<Sprite>("Sprites/hero_walk/Walk02");
-            public static Sprite Walk03 => Resources.Load<Sprite>("Sprites/hero_walk/Walk03");
-            public static Sprite Walk04 => Resources.Load<Sprite>("Sprites/hero_walk/Walk04");
-            public static Sprite Walk05 => Resources.Load<Sprite>("Sprites/hero_walk/Walk05");
-            public static Sprite Walk06 => Resources.Load<Sprite>("Sprites/hero_walk/Walk06");
-            public static Sprite Walk07 => Resources.Load<Sprite>("Sprites/hero_walk/Walk07");
-            public static Sprite Walk08 => Resources.Load<Sprite>("Sprites/hero_walk/Walk08");
+            public static Sprite ded_sit => Resources.Load<Sprite>("Sprites/ded/ded_sit");
+        }
+        public static class Dialoge
+        {
+            public static class ded
+            {
+                public static Sprite cmile => Resources.Load<Sprite>("Sprites/Dialoge/ded/cmile");
+                public static Sprite common => Resources.Load<Sprite>("Sprites/Dialoge/ded/common");
+            }
+        }
+        public static class girl
+        {
+            public static Sprite girl_sit01 => Resources.Load<Sprite>("Sprites/girl/girl_sit01");
+            public static Sprite girl_sit02 => Resources.Load<Sprite>("Sprites/girl/girl_sit02");
+            public static Sprite girl_sit03 => Resources.Load<Sprite>("Sprites/girl/girl_sit03");
+            public static Sprite girl_sit04 => Resources.Load<Sprite>("Sprites/girl/girl_sit04");
+            public static Sprite girl_sit05 => Resources.Load<Sprite>("Sprites/girl/girl_sit05");
+            public static Sprite girl_sit06 => Resources.Load<Sprite>("Sprites/girl/girl_sit06");
+        }
+        public static class main_hero
+        {
+            public static class Walk
+            {
+                public static Sprite Walk01 => Resources.Load<Sprite>("Sprites/main_hero/Walk/Walk01");
+                public static Sprite Walk02 => Resources.Load<Sprite>("Sprites/main_hero/Walk/Walk02");
+                public static Sprite Walk03 => Resources.Load<Sprite>("Sprites/main_hero/Walk/Walk03");
+                public static Sprite Walk04 => Resources.Load<Sprite>("Sprites/main_hero/Walk/Walk04");
+                public static Sprite Walk05 => Resources.Load<Sprite>("Sprites/main_hero/Walk/Walk05");
+                public static Sprite Walk06 => Resources.Load<Sprite>("Sprites/main_hero/Walk/Walk06");
+                public static Sprite Walk07 => Resources.Load<Sprite>("Sprites/main_hero/Walk/Walk07");
+                public static Sprite Walk08 => Resources.Load<Sprite>("Sprites/main_hero/Walk/Walk08");
+            }
+            public static Sprite stand => Resources.Load<Sprite>("Sprites/main_hero/stand");
         }
         public static Sprite CarriageDialogue1 => Resources.Load<Sprite>("Sprites/CarriageDialogue1");
         public static Sprite CarriagePlaceholder => Resources.Load<Sprite>("Sprites/CarriagePlaceholder");

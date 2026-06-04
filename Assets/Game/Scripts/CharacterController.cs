@@ -1,9 +1,13 @@
 using System;
 using Game.Scripts;
+using NUnit.Framework;
 using UnityEngine;
 
 public class CharacterController : MonoBehaviour
 {
+    [SerializeField] private SpriteRenderer hero_sprite;
+    [SerializeField] private Animator animator;
+
     public MoveDirection MoveDirection = MoveDirection.Right;
     public float MoveSpeed;
     
@@ -15,8 +19,6 @@ public class CharacterController : MonoBehaviour
     private Rigidbody2D _rigidbody;
     private Collider2D _collider;
 
-    [SerializeField] private GameObject light;
-
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -24,8 +26,11 @@ public class CharacterController : MonoBehaviour
         _isMoving = true;
         OnGameplayStop += Stop;
         OnGameplayResume += Resume;
+    }
 
-        light.SetActive(false);
+    private void Update()
+    {
+        animator.SetBool("move", _isMoving);
     }
 
     void Resume()
@@ -37,6 +42,7 @@ public class CharacterController : MonoBehaviour
     {
         _isMoving = false;
         _rigidbody.linearVelocity = Vector2.zero;
+        
     }
     
     void FixedUpdate()
@@ -75,15 +81,9 @@ public class CharacterController : MonoBehaviour
             MoveDirection == MoveDirection.Left
                 ? MoveDirection.Right
                 : MoveDirection.Left;
-        
-    }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            light.SetActive(!light.activeSelf);
-        }
+        hero_sprite.flipX = MoveDirection == MoveDirection.Left;
+
     }
 }
 
